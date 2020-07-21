@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editName;
     private EditText editComment;
     private Button button;
+    private Button back;
     private MsgAdapter adapter;
     private ListView listView;
     private List<Msg> msgList = new ArrayList<>();
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         button = (Button) findViewById(R.id.button);
+        back=(Button) findViewById(R.id.msg_back);
         editName = (EditText) findViewById(R.id.edit_name);
         editComment = (EditText) findViewById(R.id.edit_comment);
 
@@ -39,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MsgAdapter(MainActivity.this, R.layout.pinglun_item, msgList);
         listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
